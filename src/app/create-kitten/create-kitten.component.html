@@ -1,0 +1,12 @@
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+    <p>Login</p>
+    <input type="text" class="log input" name="log" [(ngModel)]="kitten.name" required >
+    <p>Race</p>
+    <input type="text" class="race input" name="race"[(ngModel)]="kitten.race" required #racee="ngModel">
+    <p>Birthday</p>
+    <input type="text" class="birthday input" name="birthday"[(ngModel)]="kitten.birthday" required #birthdayy="ngModel">
+    <p>Image</p>
+    <input type="text" class="image" name="image"[(ngModel)]="kitten.image" required #imagee="ngModel" [ngClass]="{'input':'!imagee[pristine]'}">
+    <br/>
+    <input type="submit" value="Submit" class="btn btn-success" [disabled]="myForm.invalid"  />
+</form>

@@ -1,0 +1,18 @@
+<app-create-kitten (kitt)="onReceiv($event)"></app-create-kitten>
+<ul *ngIf="kittenList">
+    <li *ngFor="let kit of kittenList; let i=index" >
+        <img src={{kit.image}} (mouseover)="appDisplayCat=true" (mouseout)="appDisplayCat=false"/>
+        <h3>Name</h3>
+        <p>{{kit.name}}</p>
+        <h3 *ngIf="appDisplayCat">Race</h3>
+        <p *ngIf="appDisplayCat">{{kit.race}}</p>
+        <h3 *ngIf="appDisplayCat">Birthday</h3>
+        <p *ngIf="appDisplayCat">{{kit.birthday}}</p>
+        
+        <input type="button" value="Adopt" class="btn btn-primary" (click)="onAdopt(i)">
+    </li>
+</ul>
+
+<div *ngIf="kittenAddopt">
+<app-user-kitten [kittenAddopt]="kittenAddopt"></app-user-kitten>
+</div>
